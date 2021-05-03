@@ -1,0 +1,73 @@
+<div>
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th scope="col"> Nom de l'employé</th>
+          <th scope="col"> Prénom de l'employé</th>
+          <th scope="col"> Addresse mail de l'employé</th>
+          <th scope="col">Genre</th>
+          <th scope="col">Ville de départ</th>
+          <th scope="col">Ville d'arrivée</th>
+          <th scope="col">Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let offre of offres$ | async">
+          <td>{{ offre.Emp.nom }}</td>
+          <td>{{ offre.Emp.prenom }}</td>
+          <td>{{ offre.Emp.addresseemail }}</td>
+          <td>{{ offre.Emp.genre }}</td>
+          <td>{{ offre.Villedep }}</td>
+          <td>{{ offre.Villearriv }}</td>
+          <td>{{ offre.Dateo }}</td>
+          <td>
+            <button (click)="showUpdateForm(offre)" class="btn btn-primary" style="margin: 5px">Update</button>
+            <button (click)="deleteOffre(offre.id)" class="btn btn-danger" style="margin: 5px">Delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+<body>
+      <div class = "testbox">  
+    <div *ngIf="isUpdateActivated" style="margin-top: 50px; margin-left: 50px;">
+      <h4>Mise à jour Offre</h4>
+      <form (ngSubmit)="updateOffre(updateForm)" #updateForm="ngForm">
+        <hr/>
+          <div class="item">
+            <p>Ville de départ </p>
+          <input
+            type="text"
+            id="Villedep"
+            name="Villedep"
+            class="form-control"
+            required
+            [(ngModel)]="offreToBeUpdated.Villedep"/>
+        </div>
+        <div class="item location">
+          <p>Ville d'arrivée</p>
+          <input
+            type="text"
+            id="Villearriv"
+            name="Villearriv"
+            class="form-control"
+            required
+            [(ngModel)]="offreToBeUpdated.Villearriv"/>
+        </div>
+        <div class="item">
+          <p>Date </p>
+          <input
+            type="Date"
+            id="Dateo"
+            name="Dateo"
+            class="form-control"
+            required
+            [(ngModel)]="offreToBeUpdated.Dateo"
+            style="width: 400px"/>
+        </div>
+
+
+        <button [disabled]="updateForm.invalid" class="btn btn-primary" type="submit">Update</button>
+      </form>
+    </div>
+  </div>
+  </body>

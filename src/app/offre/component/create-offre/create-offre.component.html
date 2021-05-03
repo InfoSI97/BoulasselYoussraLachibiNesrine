@@ -1,0 +1,36 @@
+<body>
+  <div class = "testbox">
+  <form (ngSubmit)="onSubmit(createForm)" #createForm="ngForm" id = "formulaire-responsive " class="clearfix">
+    <h1>Formulaire</h1>
+          <p>Veuillez remplir les champs.</p>
+          <hr/>
+          <p>Coordonnées de l'employé</p>
+          <div class="item">
+            <input type="text" name="idemp" id="idemp" class="form-control" ngModel required placeholder="ID" />
+            </div>
+            <div class="item">
+            <input type="text" name="nom" id="nom" placeholder="Nom" class="form-control" ngModel required/>
+            <input type="text" name="prenom" placeholder="Prénom" id="prenom" class="form-control" ngModel required/>
+          </div>
+          <div class="item">
+            <input type="text" name="genre" placeholder="Genre" id="genre" class="form-control" ngModel required/>
+            <input type="email" name="addresseemail" class="form-control" placeholder="Addresse email" ngModel required id="addresseemail"/>
+          </div>
+          <div class="item">
+            <p>Ville de départ </p>
+            <input type="text" name="Villedep" placeholder="ville de départ" class="form-control" ngModel required id="Villedep" />
+          </div>
+          <div class="item location">
+            <p>Ville d'arrivée</p>
+            <input type="text" name="Villearriv"  placeholder="ville d'arrivée" class="form-control" ngModel required id="Villearriv"/>
+          </div>
+         <div class="item">
+            <p>Date </p>
+            <input type="date" name="Dateo" class="form-control" ngModel required id="Dateo"/>
+            <i class="fas fa-calendar-alt"></i>
+          </div>
+           <div class="btn-block"> <button [disabled]="createForm.invalid" class="btn btn-primary">Créer</button>
+          </div>
+  </form>
+  </div>
+  </body>
